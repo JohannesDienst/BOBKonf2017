@@ -8,9 +8,12 @@
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/night.css">
-
+    
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
+    <style>
+      .fragment { font-size: 2.11em !important; font-weight: bold !important; }
+    </style>
 
     <!-- Printing and PDF exports -->
     <script>
@@ -40,7 +43,7 @@
           TODO Schaubild
         </section>
         <section>
-          TODO Businesslogik zu 100% sinnvolle Tests!
+          <h2>100% sinnvolle Tests</h2>
         </section>
 
         <section>
@@ -54,16 +57,16 @@
         </section>
 
         <section>
-          <h2>100% nicht gleich Bugfreiheit</h2>
+          <h2><span style="color:#e7ad52;">100%</span> &ne; <span style="color:#e7ad52;">Bugfreiheit</span></h2>
         </section>
         <section>
           <h2>Subtile Bugs bleiben</h2>
-          <section>
-            Beispiel 1
-          </section>
-          <section>
-            Beispiel 2
-          </section>
+        </section>
+        <section>
+          <img data-src="img/not_covered_example1.png">
+        </section>
+        <section>
+          <img data-src="img/not_covered_example2.png">
         </section>
 
         <section>
@@ -83,10 +86,8 @@
             TODO Schaubild des Vorgehens
           </section>
           <section>
-            <h1 style="color:#FFD700;">Gold Standard</h1>
-            <section>
-              <h2>=> Sinnvolle Tests</h2>
-            </section>
+            <h2 style="color:#FFD700;">Gold Standard</h2>
+              <h2>&#x21e8; Sinnvolle Tests</h2>
           </section>
         </section>
 
@@ -99,54 +100,128 @@
           <h2>12 Experimental Mutatoren</h2>
         </section>
         <section>
-          <h2>Schnell</h2>
-          <h2>ant, maven, gradle etc.</h2>
-          <h2>Menschenlesbare Reports</h2>
+          <p class="fragment">Schnell</p>
+          <p class="fragment">ant, maven, gradle etc.</p>
+          <p class="fragment">Menschenlesbare Reports</p>
         </section>
         <section>
           <img style="background:#fff;" data-src="img/pit-black-150x152.png">
         </section>
 
         <section>
-          <h1>Unsere Testsuite</h1>
+          <h1>Testsuite</h1>
           <section>
-            x Tests
+            <h2>171 Tests</h2>
           </section>
           <section>
-            PIT Laufzeit:
-            x
-          </section>
-          <section>
-            TODO Wichtigste Fehler die gefunden wurden!
+            <h2>Laufzeit</h2>
+            <p class="fragment">Ohne PIT: 0.5 min</p>
+            <p class="fragment">Mit PIT: 4 min</p>
+            </ul>
           </section>
         </section>
         <section>
-          <h2>Beispiele</h2>
-           <section>
-             Beispiel 1
-           </section>
-           <section>
-             Beispiel 2
-           </section>
+          <h2>Erkenntnisse</h2>
+        </section>
+        <section>
+          <h2>Bugs</h2>
+        </section>
+        <section>
+          <h2>Seiteneffekte</h2>
+          <img data-src="img/bug_example1.png">
+        </section>
+        <section>
+          <h2>False positives</h2>
+          <img data-src="img/false_positive_example1.png">
         </section>
 
         <section>
           <h1>Demo</h1>
           <section>
-            Spring Boot
+            <pre><code data-trim data-noescape>&lt;plugin&gt;
+  &lt;groupId&gt;org.pitest&lt;/groupId&gt;
+  &lt;artifactId&gt;pitest-maven&lt;/artifactId&gt;
+  &lt;version&gt;1.1.11&lt;/version&gt;
+  &lt;configuration&gt;
+    &lt;targetClasses&gt;
+      &lt;param&gt;de.*&lt;/param&gt;
+    &lt;/targetClasses&gt;
+    &lt;targetTests&gt;
+      &lt;param&gt;de.*&lt;/param&gt;
+    &lt;/targetTests&gt;
+    &lt;threads&gt;3&lt;/threads&gt;
+  &lt;/configuration&gt;
+&lt;/plugin&gt;
+            </code></pre>
           </section>
           <section>
-            Maven config
+            <pre><code data-trim data-noescape>
+              public class Fibonacci {
+
+  public int calc(int i) {
+    if (i == 0) {
+      return 0;
+    }
+
+    if (i <= 2) {
+      return 1;
+    }
+
+    return calc(i-1) + calc(i-2);
+  }
+}</code></pre>
           </section>
           <section>
-            Klasse
+            <pre><code data-trim data-noescape>Test Fibonacchi</code></pre>
           </section>
           <section>
-            Test
+            <pre><code data-trim data-noescape>public class Sort {
+
+  public List<Integer> sort(List<Integer> coll) {
+    List<Integer> list = new ArrayList<>();
+    list.addAll(coll);
+
+    Collections.sort(list);
+    log(list);
+
+    return Collections.unmodifiableList(list);
+  }
+
+  private void log(List<Integer> list) {
+    System.out.println(
+      list.stream().map(Object::toString)
+      .collect(Collectors.joining(", ")));
+  }
+}</code></pre>
           </section>
           <section>
-            Report
+            <pre><code data-trim data-noescape>Test Fibonacchi</code></pre>
           </section>
+        </section>
+        <section>
+          <img data-src="img/report_overview.png">
+        </section>
+        <section>
+          <img data-src="img/package_overview.png">
+        </section>
+        <section>
+          <img data-src="img/fib_1.png">
+        </section>
+        <section>
+          <img data-src="img/fib_2.png">
+        </section>
+        <section>
+          <img data-src="img/sort_1.png">
+        </section>
+        <section>
+          <img data-src="img/sort_2.png">
+        </section>
+
+        <section>
+          <h1>Fazit</h1>
+          <p class="fragment"><span style="color:#e7ad52;">100%</span> &ne; <span style="color:#e7ad52;">Bugfreiheit</span></p>
+          <p class="fragment">Arbeitsaufwand</p>
+          <p class="fragment">Bessere Testsuite</p>
         </section>
 
         <section style="font-size:90%;">
@@ -188,6 +263,13 @@
           { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
         ]
       });
+      Reveal.configure({ slideNumber: true });
+      // Slide number formatting can be configured using these variables:
+      //  "h.v":  horizontal . vertical slide number (default)
+      //  "h/v":  horizontal / vertical slide number
+      //    "c":  flattened slide number
+      //  "c/t":  flattened slide number / total slides
+      Reveal.configure({ slideNumber: 'c/t' });
     </script>
   </body>
 </html>
