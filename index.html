@@ -34,7 +34,7 @@
         </section>
 
         <section>
-          <h2>Warum Mutationstesten?</h2>
+          <h2><span style="color:#e7ad52;">Warum</span> Mutationstesten?</h2>
         </section>
         <section>
           <h2>Legacy Projekt</h2>
@@ -60,7 +60,7 @@
           <h2><span style="color:#e7ad52;">100%</span> &ne; <span style="color:#e7ad52;">Bugfreiheit</span></h2>
         </section>
         <section>
-          <h2>Subtile Bugs bleiben</h2>
+          <h2><span style="color:#e7ad52;">&#x26a0;</span> Subtile Bugs <span style="color:#e7ad52;">&#x26a0;</span></h2>
         </section>
         <section>
           <img data-src="img/not_covered_example1.png">
@@ -100,12 +100,9 @@
           <h2>12 Experimental Mutatoren</h2>
         </section>
         <section>
-          <p class="fragment">Schnell</p>
-          <p class="fragment">ant, maven, gradle etc.</p>
-          <p class="fragment">Menschenlesbare Reports</p>
-        </section>
-        <section>
-          <img style="background:#fff;" data-src="img/pit-black-150x152.png">
+          <p class="fragment fade-up">Schnell</p>
+          <p class="fragment fade-up">ant, maven, gradle etc.</p>
+          <p class="fragment fade-up">Menschenlesbare Reports</p>
         </section>
 
         <section>
@@ -115,8 +112,8 @@
           </section>
           <section>
             <h2>Laufzeit</h2>
-            <p class="fragment">Ohne PIT: 0.5 min</p>
-            <p class="fragment">Mit PIT: 4 min</p>
+            <p class="fragment fade-up">Ohne PIT: 0.5 min</p>
+            <p class="fragment fade-up">Mit PIT: 4 min</p>
             </ul>
           </section>
         </section>
@@ -172,7 +169,25 @@
 }</code></pre>
           </section>
           <section>
-            <pre><code data-trim data-noescape>Test Fibonacchi</code></pre>
+            <pre><code data-trim data-noescape>@Test public void seedValue0() {
+  assertEquals(0, fib.calc(0));
+}
+
+@Test public void seedValue1() {
+  assertEquals(1, fib.calc(1));
+}
+
+@Test public void seedValue2() {
+  assertEquals(1, fib.calc(2));
+}
+
+@Test public void value3() {
+  assertEquals(2, fib.calc(3));
+}
+
+@Test public void value11() {
+  assertEquals(89, fib.calc(11));
+}</code></pre>
           </section>
           <section>
             <pre><code data-trim data-noescape>public class Sort {
@@ -195,7 +210,19 @@
 }</code></pre>
           </section>
           <section>
-            <pre><code data-trim data-noescape>Test Fibonacchi</code></pre>
+            <pre><code class="java" data-trim data-noescape>@Test public void emptyList() {
+  assertEquals(true, sort.sort(Collections.&lt;Integer&gt;emptyList()).isEmpty());
+}
+
+@Test public void oneList() {
+  assertEquals(false,
+    sort.sort(Stream.of(42).collect(Collectors.toList())).isEmpty());
+}
+
+@Test public void twoList() {
+  assertEquals(new Integer(1),
+    sort.sort(Stream.of(2, 3, 1, 8).collect(Collectors.toList())).get(0));
+}</code></pre>
           </section>
         </section>
         <section>
@@ -219,9 +246,9 @@
 
         <section>
           <h1>Fazit</h1>
-          <p class="fragment"><span style="color:#e7ad52;">100%</span> &ne; <span style="color:#e7ad52;">Bugfreiheit</span></p>
-          <p class="fragment">Arbeitsaufwand</p>
-          <p class="fragment">Bessere Testsuite</p>
+          <p class="fragment fade-up"><span style="color:#e7ad52;">100%</span> &ne; <span style="color:#e7ad52;">Bugfreiheit</span></p>
+          <p class="fragment fade-up">Arbeitsaufwand</p>
+          <p class="fragment fade-up">Bessere Testsuite</p>
         </section>
 
         <section style="font-size:90%;">
