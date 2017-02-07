@@ -43,11 +43,11 @@
           <img data-src="img/grafik1.png" style="border: none;height: 650px;background:none;">
         </section>
         <section>
-          <h2>100% sinnvolle Tests</h2>
+          <h2>100% aussagekräftige Tests</h2>
         </section>
 
         <section>
-          <h1>100% <span style="color:#e7ad52;">Testabdeckung</span></h1>
+          <h1>100% <span style="color:#e7ad52;">Zeilenabdeckung</span></h1>
         </section>
         <section>
           <h2><span style="color:#e7ad52;">Wir sind</span> fertig!</h2>
@@ -87,7 +87,7 @@
           </section>
           <section>
             <h2 style="color:#FFD700;">Gold Standard</h2>
-              <h2>&#x21e8; Sinnvolle Tests</h2>
+              <h2>&#x21e8; aussagekräftige Tests</h2>
           </section>
         </section>
 
@@ -97,7 +97,13 @@
         </section>
         <section>
           <h2>7 Default Mutatoren</h2>
-          <h2>12 Experimental Mutatoren</h2>
+          <h2>12 Experimentelle Mutatoren</h2>
+        </section>
+        <section>
+          <h1>Default</h1>
+          <p class="fragment fade-up">Bedingungen, Mathematisch</p>
+          <p class="fragment fade-up">Rückgabetyp</p>
+          <p class="fragment fade-up">Entfernung von void-Methodenaufrufen</p>
         </section>
         <section>
           <p class="fragment fade-up">Schnell</p>
@@ -192,7 +198,7 @@
           <section>
             <pre><code data-trim data-noescape>public class Sort {
 
-  public List<Integer> sort(List<Integer> coll) {
+  public static List<Integer> sort(List<Integer> coll) {
     List<Integer> list = new ArrayList<>();
     list.addAll(coll);
 
@@ -202,7 +208,7 @@
     return Collections.unmodifiableList(list);
   }
 
-  private void log(List<Integer> list) {
+  private static void log(List<Integer> list) {
     System.out.println(
       list.stream().map(Object::toString)
       .collect(Collectors.joining(", ")));
@@ -211,17 +217,17 @@
           </section>
           <section>
             <pre><code class="java" data-trim data-noescape>@Test public void emptyList() {
-  assertEquals(true, sort.sort(Collections.&lt;Integer&gt;emptyList()).isEmpty());
+  assertEquals(true, Sort.sort(Collections.&lt;Integer&gt;emptyList()).isEmpty());
 }
 
 @Test public void oneList() {
   assertEquals(false,
-    sort.sort(Stream.of(42).collect(Collectors.toList())).isEmpty());
+    Sort.sort(Stream.of(42).collect(Collectors.toList())).isEmpty());
 }
 
 @Test public void twoList() {
   assertEquals(new Integer(1),
-    sort.sort(Stream.of(2, 3, 1, 8).collect(Collectors.toList())).get(0));
+    Sort.sort(Stream.of(2, 3, 1, 8).collect(Collectors.toList())).get(0));
 }</code></pre>
           </section>
         </section>

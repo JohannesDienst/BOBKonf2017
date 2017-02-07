@@ -27,25 +27,18 @@ import org.junit.Test;
 
 public class Sort_Test
 {
-  private Sort sort;
-
-  @Before
-  public void setup()
-  {
-    sort = new Sort();
-  }
 
   @Test public void emptyList() {
-    assertEquals(true, sort.sort(Collections.<Integer>emptyList()).isEmpty());
+    assertEquals(true, Sort.sort(Collections.<Integer>emptyList()).isEmpty());
   }
 
   @Test public void oneList() {
     assertEquals(false,
-      sort.sort(Stream.of(42).collect(Collectors.toList())).isEmpty());
+      Sort.sort(Stream.of(42).collect(Collectors.toList())).isEmpty());
   }
 
   @Test public void twoList() {
     assertEquals(new Integer(1),
-      sort.sort(Stream.of(2, 3, 1, 8).collect(Collectors.toList())).get(0));
+      Sort.sort(Stream.of(2, 3, 1, 8).collect(Collectors.toList())).get(0));
   }
 }
