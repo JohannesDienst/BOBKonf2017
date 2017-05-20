@@ -22,7 +22,6 @@ import java.util.Collections;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.junit.Before;
 import org.junit.Test;
 
 public class Sort_Test
@@ -39,6 +38,6 @@ public class Sort_Test
 
   @Test public void twoList() {
     assertEquals(new Integer(1),
-      Sort.sort(Stream.of(2, 3, 1, 8).collect(Collectors.toList())).get(0));
+      Sort.sort(Stream.of(1, 2, 3, 8).collect(Collectors.toList())).get(0));
   }
 }

@@ -7,12 +7,6 @@ import static org.junit.Assert.*;
 import de.jdienst.Fibonacci;
 
 /**
- * False positive:
- *   if (i <= 2) // wenn <= mutates to < still works correct
-     {
-       return 1;
-     }
- * 
  * @author jdienst
  *
  */
@@ -38,11 +32,11 @@ public class Fibonacchi_Test
     assertEquals(1, fib.calc(2));
   }
 
-  @Test public void value3() {
-    assertEquals(2, fib.calc(3));
-  }
+//  @Test public void value3() {
+//    assertEquals(2, fib.calc(3));
+//  }
 
-  @Test public void value11() {
-    assertEquals(89, fib.calc(11));
-  }
+//  @Test public void value11() {
+//    assertEquals(89, fib.calc(11));
+//  }
 }
